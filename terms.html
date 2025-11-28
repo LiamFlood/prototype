@@ -225,7 +225,7 @@
 </head>
 
 <body>
-    <header>
+  <header>
     <div class="container">
       <div class="header-top">
         <div class="header-main">
@@ -239,11 +239,17 @@
             executed between Pascal and Customer (the “Order Form”). Capitalised terms used but not
             defined here have the meaning given in the Order Form.
           </p>
+
+          <br>
+
+          <button id="export-docx" class="header-link header-link-ghost" type="button">
+            Export as Word (.docx)
+          </button>
         </div>
 
         <div class="header-actions">
           <a href="admin.html" class="header-link">Admin</a>
-          <a href="index.html" class="header-link header-link-ghost">Log out</a>
+          <a href="front-page.html" class="header-link header-link-ghost">Log out</a>
         </div>
       </div>
     </div>
@@ -661,6 +667,58 @@
       date the Order Form is signed, unless the parties agree otherwise in writing.
     </div>
   </footer>
+
+  
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const exportButton = document.getElementById("export-docx");
+    if (!exportButton) {
+      console.error("Export button not found (id='export-docx').");
+      return;
+    }
+
+    exportButton.addEventListener("click", function () {
+      const main = document.querySelector("main");
+      if (!main) {
+        alert("Could not find a <main> element on this page.");
+        console.error("<main> element not found.");
+        return;
+      }
+
+      // Only export the content of <main> (all sections are inside it)
+      const mainHtml = main.innerHTML;
+
+      const preHtml =
+        "<html xmlns:o='urn:schemas-microsoft-com:office:office' " +
+        "xmlns:w='urn:schemas-microsoft-com:office:word' " +
+        "xmlns='http://www.w3.org/TR/REC-html40'>" +
+        "<head><meta charset='utf-8'><title>Pascal ALS Optimizer – Terms</title></head><body>";
+
+      const postHtml = "</body></html>";
+
+      const html = preHtml + mainHtml + postHtml;
+
+      // Create a Blob with HTML that Word can open
+      const blob = new Blob(['\ufeff', html], {
+        type: "application/msword"
+      });
+
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      // You can keep .docx if you like; .doc is technically more correct for this trick
+      link.download = "Pascal-ALS-Optimizer-Terms.doc";
+
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    });
+  });
+</script>
+
+
 </body>
 </html>
 
