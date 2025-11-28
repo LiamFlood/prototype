@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Pascal Technologies – ALS Optimizer SaaS Terms & Data Requirements</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="General terms and data requirements for the Pascal ALS Optimizer SaaS service." />
+  <style>
+    :root {
+      --primary: #0b3c5d;
+      --accent: #00b3b3;
+      --bg: #f5f7fb;
+      --text: #222;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), #152d4e);
+      color: white;
+      padding: 2.5rem 1.25rem;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    header h1 {
+      margin: 0 0 0.5rem;
+      font-size: 1.9rem;
+      letter-spacing: 0.03em;
+    }
+
+    header p {
+      margin: 0.2rem 0;
+      max-width: 780px;
+      opacity: 0.95;
+    }
+
+    header .meta {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+
+    main {
+      padding: 2rem 1.25rem 3rem;
+    }
+
+    section {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.75rem 1.5rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 8px 18px rgba(15, 35, 95, 0.06);
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      color: var(--primary);
+      letter-spacing: 0.02em;
+    }
+
+    h3 {
+      margin-top: 1.4rem;
+      font-size: 1.05rem;
+      color: #333;
+    }
+
+    p {
+      margin: 0.35rem 0 0.75rem;
+    }
+
+    ul {
+      padding-left: 1.3rem;
+      margin: 0.1rem 0 0.75rem;
+    }
+
+    li {
+      margin-bottom: 0.25rem;
+    }
+
+    code {
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.85em;
+      background: #f0f3fa;
+      padding: 0.05rem 0.35rem;
+      border-radius: 4px;
+    }
+
+    .tagline {
+      font-size: 0.95rem;
+      border-left: 3px solid var(--accent);
+      padding-left: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .number {
+      font-weight: 600;
+      color: var(--primary);
+      margin-right: 0.35rem;
+    }
+
+    .small {
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+
+    .note {
+      border-left: 3px solid var(--accent);
+      padding-left: 0.75rem;
+      margin: 0.25rem 0 0.8rem;
+      font-size: 0.9rem;
+      color: #444;
+      background: #f5fbfb;
+    }
+
+    .table-scroll {
+      overflow-x: auto;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 0.4rem 0 1rem;
+      font-size: 0.9rem;
+    }
+
+    th, td {
+      border: 1px solid #dde3f3;
+      padding: 0.45rem 0.55rem;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f3f5fd;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #7a8296;
+      padding: 0 1.25rem 2.5rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .header-main {
+      max-width: 780px;
+    }
+
+    .header-actions {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.2rem;
+    }
+
+    .header-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      font-size: 0.8rem;
+      text-decoration: none;
+      color: #ffffff;
+      background: rgba(15, 23, 42, 0.15);
+      white-space: nowrap;
+    }
+
+    .header-link-ghost {
+      background: transparent;
+    }
+
+    .header-link:hover {
+      background: rgba(15, 23, 42, 0.28);
+      text-decoration: none;
+    }
+
+    @media (max-width: 640px) {
+      .header-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header-actions {
+        margin-top: 0.75rem;
+      }
+    }
+
+
+  </style>
+</head>
+
+<body>
+    <header>
+    <div class="container">
+      <div class="header-top">
+        <div class="header-main">
+          <h1>Pascal ALS Optimizer – SaaS Terms &amp; Data Requirements</h1>
+          <p class="tagline">
+            These general terms and data requirements apply to the ALS Optimizer software-as-a-service
+            provided by Pascal Technologies AS (“Pascal”) to each customer (“Customer”).
+          </p>
+          <p class="meta">
+            This page is incorporated by reference into the ALS Optimizer Order Form / Front Page
+            executed between Pascal and Customer (the “Order Form”). Capitalised terms used but not
+            defined here have the meaning given in the Order Form.
+          </p>
+        </div>
+
+        <div class="header-actions">
+          <a href="admin.html" class="header-link">Admin</a>
+          <a href="front-page.html" class="header-link header-link-ghost">Log out</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <main>
+    <div class="container">
+
+      <!-- 1. Scope & Structure -->
+      <section id="scope">
+        <h2><span class="number">1.</span> Scope and Structure of the Agreement</h2>
+        <p>
+          (a) These Terms apply to Customer’s use of the ALS Optimizer SaaS service, any related
+          professional services and integrations, and any associated documentation and materials
+          that Pascal makes available (together, the “Service”).
+        </p>
+        <p>
+          (b) The contractual documents consist of:
+        </p>
+        <ul>
+          <li>The signed Order Form / front page (commercial details and signature page);</li>
+          <li>This ALS Optimizer SaaS Terms &amp; Data Requirements page; and</li>
+          <li>Any additional schedules or statements of work that the parties expressly reference in the Order Form.</li>
+        </ul>
+        <p>
+          (c) In case of conflict, the Order Form prevails over this page, and this page prevails
+          over any other documentation, unless the parties expressly agree otherwise in writing.
+        </p>
+      </section>
+
+      <!-- 2. Service Description -->
+      <section id="service">
+        <h2><span class="number">2.</span> Service Description and Access</h2>
+        <p>
+          (a) Pascal provides ALS Optimizer as a hosted service. Customer accesses the Service
+          remotely over the internet through browser-based interfaces, APIs, and/or other
+          access mechanisms specified by Pascal.
+        </p>
+        <p>
+          (b) No software is delivered or installed on Customer systems, other than any
+          lightweight connectors or agents that may be agreed for telemetry integration
+          under Section 5.
+        </p>
+        <p>
+          (c) Subject to timely payment of applicable fees and compliance with these Terms,
+          Pascal grants Customer a non-exclusive, non-transferable, time-limited right to
+          access and use the Service for Customer’s internal business purposes and for the
+          number of vessels, users, and environments specified in the Order Form.
+        </p>
+      </section>
+
+      <!-- 3. Intellectual Property -->
+      <section id="ip">
+        <h2><span class="number">3.</span> Intellectual Property and Licence</h2>
+        <p>
+          (a) Pascal and its licensors own all right, title and interest in and to the Service,
+          including all software, algorithms, models, interfaces, documentation, design,
+          and any improvements, updates or derivative works.
+        </p>
+        <p>
+          (b) Except for the limited rights expressly granted in Section 2, no rights or
+          licences are granted to Customer, whether by implication or otherwise.
+          Customer must not (and must not permit any third party to):
+        </p>
+        <ul>
+          <li>copy, modify, translate or create derivative works of the Service;</li>
+          <li>reverse engineer, decompile, disassemble or attempt to extract source code, except where permitted by applicable law; or</li>
+          <li>remove or alter any proprietary notices or branding.</li>
+        </ul>
+        <p>
+          (c) Customer retains ownership of Customer Data (including vessel telemetry,
+          operational data and other materials supplied by Customer). Customer grants
+          Pascal a non-exclusive, worldwide licence to host, process, analyse and use the
+          Customer Data as necessary to provide the Service, improve the Service
+          (on an aggregated and anonymised basis) and otherwise perform its obligations
+          under the Agreement.
+        </p>
+      </section>
+
+      <!-- 4. Fees & Payment -->
+      <section id="fees">
+        <h2><span class="number">4.</span> Fees, Free Trials and Payment Terms</h2>
+        <p>
+          (a) Fees and commercial details (including any free trial periods, pilot terms,
+          vessel counts and subscription charges) are set out in the Order Form.
+        </p>
+        <p>
+          (b) Unless otherwise stated in the Order Form:
+        </p>
+        <ul>
+          <li>subscription fees are invoiced in advance for the applicable billing period; and</li>
+          <li>integration or professional services are invoiced on completion of milestones or
+              on a time-and-materials basis, as agreed in writing.</li>
+        </ul>
+        <p>
+          (c) Customer is responsible for all applicable taxes (other than taxes on
+          Pascal’s income), and for reasonable expenses incurred by Pascal in connection
+          with agreed services.
+        </p>
+        <p>
+          (d) Late payment may result in suspension of access to the Service until the
+          outstanding amounts are paid, after reasonable notice.
+        </p>
+      </section>
+
+      <!-- 5. Telemetry & Data Upload Requirements -->
+      <section id="data-requirements">
+        <h2><span class="number">5.</span> Telemetry Integration and Data Upload Requirements</h2>
+        <p>
+          ALS Optimizer relies on a predictable data pipeline from each vessel and/or
+          fleet system. The purpose of this section is to describe how telemetry data is
+          supplied to Pascal, in what form, and with which responsibilities on each side. 
+        </p>
+
+        <h3>5.1 General Principles</h3>
+        <ul>
+          <li>Customer ensures that data sources required for ALS Optimizer are available in
+              one of the integration patterns described below.</li>
+          <li>Pascal configures and maintains the ingestion pipeline from the agreed interfaces
+              into the ALS Optimizer platform.</li>
+          <li>Unless otherwise agreed, data is provided in UTC or clearly documented local time
+              including offset.</li>
+          <li>Where schemas or formats change, Customer notifies Pascal in advance so
+              ingestion can be adjusted without loss of data.</li>
+        </ul>
+
+        <h3>5.2 Preferred Option – API-Based Integration</h3>
+        <p>
+          The preferred integration method is a set of REST or similar APIs exposed by
+          Customer or by a third-party telemetry provider.
+        </p>
+        <p>
+          Customer will provide:
+        </p>
+        <ul>
+          <li>API documentation describing endpoints, parameters, authentication, and rate limits;</li>
+          <li>production credentials (for example API keys, OAuth client credentials, or service accounts); and</li>
+          <li>network access (for example allow-listing the Pascal IP ranges or enabling secure VPN/privatelink connectivity, if required).</li>
+        </ul>
+        <p>
+          Pascal will:
+        </p>
+        <ul>
+          <li>configure queries and schedules (polling or event-based) to retrieve telemetry as
+              soon as it is available from the API;</li>
+          <li>manage retries, backoff and fault handling on the ingestion side; and</li>
+          <li>minimise operational load on Customer by treating this as a one-time setup with
+              low ongoing maintenance.</li>
+        </ul>
+
+        <h3>5.3 Alternative – Periodic Tabular File Exports</h3>
+        <p>
+          If APIs are not available, the parties may agree periodic exports of telemetry
+          and operational data as tabular files (for example CSV, Parquet, or delimited text
+          files) with a stable, documented schema. 
+        </p>
+        <p>
+          Customer will typically:
+        </p>
+        <ul>
+          <li>produce files on an agreed schedule (for example daily or weekly);</li>
+          <li>ensure the column structure, units and encodings are consistent across files; and</li>
+          <li>deliver the files via a mutually agreed mechanism (for example secure upload,
+              SFTP, or object storage such as Azure Blob Storage or S3-compatible storage).</li>
+        </ul>
+        <p>
+          Pascal will:
+        </p>
+        <ul>
+          <li>configure ingestion pipelines to read and validate each new file;</li>
+          <li>log and report any schema or quality issues to Customer; and</li>
+          <li>update ALS Optimizer analyses in line with the agreed file frequency.</li>
+        </ul>
+
+        <h3>5.4 Custom Integration Options</h3>
+        <p>
+          Where neither APIs nor regular file exports are feasible, the parties may
+          agree on more custom options, such as: 
+        </p>
+        <ul>
+          <li>
+            A read-only database connection (for example PostgreSQL, SQL Server or MySQL)
+            using a dedicated reporting schema or view that Customer maintains.
+          </li>
+          <li>
+            Periodic ingestion from a data lake or object store (for example Azure Data Lake
+            or S3-compatible storage), where Customer writes telemetry snapshots into a
+            defined folder structure and format.
+          </li>
+          <li>
+            Subscription to a message or event stream (for example Azure Event Hubs,
+            Kafka or MQTT) where Customer publishes telemetry events and Pascal consumes
+            them as a downstream subscriber.
+          </li>
+          <li>
+            A lightweight “bridge” or connector service in Customer’s environment that
+            reads from internal systems (for example historians, on-prem databases or
+            internal APIs) and forwards the required telemetry securely to a Pascal endpoint
+            over HTTPS.
+          </li>
+        </ul>
+        <p class="small">
+          Custom integrations may involve additional one-off setup effort and will be
+          scoped and priced separately in the Order Form or a statement of work.
+        </p>
+
+        <h3>5.5 Data and Documentation Sheet</h3>
+        <p>
+          In addition to the transport mechanisms above, Pascal and Customer will agree a
+          detailed “Data &amp; Documentation Sheet” for each project. This sheet typically
+          specifies, per vessel and data source:
+        </p>
+
+        <div class="note">
+          <strong>Implementation note for Pascal:</strong> Replace the placeholder table below with
+          your actual fields from the “Data and Documentation Request” spreadsheet
+          (for example required telemetry tags, noon report fields, performance curves,
+          charterparty data, etc.).
+        </div>
+
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Example Fields (to be replaced with your actual sheet)</th>
+                <th>Source System</th>
+                <th>Update Frequency</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Vessel identity</td>
+                <td>Vessel name, IMO number, fleet, ship type</td>
+                <td>Fleet management / PMS</td>
+                <td>Static / on change</td>
+                <td>Must uniquely identify each hull used in ALS Optimizer.</td>
+              </tr>
+              <tr>
+                <td>Operational telemetry</td>
+                <td>Speed over ground, shaft power, fuel flow, draught, wind, sea state</td>
+                <td>Telemetry platform / sensor gateway</td>
+                <td>As captured (e.g. 1–5 min intervals)</td>
+                <td>Granularity and lag to be agreed during onboarding.</td>
+              </tr>
+              <tr>
+                <td>Noon / manual reports</td>
+                <td>Position, distance sailed, ROB, consumed fuel, weather summary</td>
+                <td>Noon report system / spreadsheets</td>
+                <td>Daily or per voyage</td>
+                <td>Used for validation and backfilling gaps in telemetry.</td>
+              </tr>
+              <tr>
+                <td>Commercial / reference data</td>
+                <td>Charterparty speed &amp; consumption, route constraints, emission targets</td>
+                <td>Commercial systems or contract documentation</td>
+                <td>On change</td>
+                <td>Supports optimisation targets and benchmarks.</td>
+              </tr>
+              <tr>
+                <td>Documentation</td>
+                <td>Speed–power curves, hull &amp; propeller data, engine curves</td>
+                <td>PDFs / technical documentation</td>
+                <td>On change</td>
+                <td>Used for model calibration and validation.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          The Data &amp; Documentation Sheet, once agreed, forms part of the Agreement and
+          may be updated by mutual written agreement (including email confirmation).
+        </p>
+      </section>
+
+      <!-- 6. Customer Responsibilities -->
+      <section id="customer-responsibilities">
+        <h2><span class="number">6.</span> Customer Responsibilities</h2>
+        <p>
+          Customer is responsible for:
+        </p>
+        <ul>
+          <li>providing and maintaining internet connectivity and internal infrastructure
+              required to access the Service;</li>
+          <li>ensuring that users are trained and use the Service in accordance with
+              the documentation and these Terms;</li>
+          <li>ensuring that all data supplied is, to the best of Customer’s knowledge,
+              accurate, lawful and suitable for the intended use; and</li>
+          <li>notifying Pascal promptly of any security incidents or suspected misuse
+              related to the Service.</li>
+        </ul>
+      </section>
+
+      <!-- 7. Support & Service Levels -->
+      <section id="support">
+        <h2><span class="number">7.</span> Support and Service Levels</h2>
+        <p>
+          Pascal provides remote support for the Service during its normal business hours
+          (unless otherwise specified in the Order Form). Additional or out-of-hours
+          support, if required, may be agreed separately.
+        </p>
+        <p>
+          Pascal may perform scheduled maintenance windows; where possible these will be
+          communicated in advance and planned to minimise operational impact.
+        </p>
+      </section>
+
+      <!-- 8. Warranties & Disclaimers -->
+      <section id="warranties">
+        <h2><span class="number">8.</span> Warranties and Disclaimers</h2>
+        <p>
+          (a) Pascal will provide the Service with reasonable skill and care and in
+          accordance with these Terms.
+        </p>
+        <p>
+          (b) Except as expressly stated in the Agreement, the Service is provided “as is”
+          and Pascal disclaims all other warranties (express or implied), including any
+          implied warranties of merchantability, fitness for a particular purpose, and
+          non-infringement, to the maximum extent permitted by law. 
+        </p>
+        <p>
+          (c) Customer is solely responsible for its own compliance with laws and
+          regulations and for decisions taken based on insights from the Service.
+          The Service is a decision-support tool and does not replace Customer’s
+          operational judgement.
+        </p>
+      </section>
+
+      <!-- 9. Liability -->
+      <section id="liability">
+        <h2><span class="number">9.</span> Limitation of Liability</h2>
+        <p>
+          (a) Neither party excludes liability for death or personal injury caused by its
+          negligence, for fraud, or for any other liability that cannot be excluded under
+          applicable law.
+        </p>
+        <p>
+          (b) Subject to (a), neither party is liable to the other for any indirect,
+          consequential, incidental or special losses, including loss of profit, revenue,
+          or business interruption. 
+        </p>
+        <p>
+          (c) Subject to (a) and (b), each party’s aggregate liability arising out of or
+          in connection with the Agreement (whether in contract, tort or otherwise) is
+          capped at an amount equal to the total subscription fees actually paid by
+          Customer to Pascal for the Service in the twelve (12) months immediately
+          preceding the event giving rise to the claim.
+        </p>
+      </section>
+
+      <!-- 10. Confidentiality & Data Protection -->
+      <section id="confidentiality">
+        <h2><span class="number">10.</span> Confidentiality and Data Protection</h2>
+        <p>
+          (a) Each party will treat as confidential all information received from the other
+          party that is marked or reasonably understood to be confidential, and will use
+          such information only for the purposes of performing the Agreement.
+        </p>
+        <p>
+          (b) The parties will comply with applicable data protection laws in relation to
+          any personal data processed through the Service. Typically, Customer acts as
+          data controller and Pascal acts as data processor in respect of Customer’s
+          personal data, and the parties may enter into a separate data processing
+          agreement where required. 
+        </p>
+      </section>
+
+      <!-- 11. Term, Suspension & Termination -->
+      <section id="term">
+        <h2><span class="number">11.</span> Term, Suspension and Termination</h2>
+        <p>
+          (a) The term of the Agreement is specified in the Order Form.
+        </p>
+        <p>
+          (b) Either party may terminate the Agreement with immediate effect if the other
+          party commits a material breach that is not remedied within a reasonable cure
+          period after written notice, or becomes insolvent.
+        </p>
+        <p>
+          (c) Pascal may suspend access to the Service on notice if Customer fails to pay
+          undisputed fees when due, or if suspension is reasonably necessary to address
+          a security risk or misuse. Access will be restored promptly once the underlying
+          issue is resolved. 
+        </p>
+        <p>
+          (d) Upon termination, Customer’s right to access the Service ends. Pascal will
+          make a final export of Customer Data available on request within a reasonable
+          period, in a standard industry format (for example CSV or Parquet), and will
+          then delete or anonymise Customer Data in accordance with its retention
+          policies, unless otherwise required by law.
+        </p>
+      </section>
+
+      <!-- 12. Governing Law & Disputes -->
+      <section id="law">
+        <h2><span class="number">12.</span> Governing Law and Dispute Resolution</h2>
+        <p>
+          The governing law and dispute resolution mechanism (for example court
+          jurisdiction or arbitration seat) are stated in the Order Form. If not specified,
+          they default to the laws of Norway, with disputes subject to the jurisdiction of
+          the Norwegian courts.
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      Pascal ALS Optimizer – SaaS Terms &amp; Data Requirements · This page may be updated from
+      time to time. The version applicable to a given Order Form is the version in force on the
+      date the Order Form is signed, unless the parties agree otherwise in writing.
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,712 @@
+/* Base tokens */
+:root {
+  --color-bg: #f8fafc;
+  --color-bg-soft: #e5f2ff;
+  --color-border: #e2e8f0;
+  --color-text: #0f172a;
+  --color-muted: #64748b;
+  --color-primary: #0ea5e9;
+  --color-primary-dark: #0369a1;
+  --radius-card: 16px;
+  --shadow-card: 0 20px 30px rgba(15, 23, 42, 0.08);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+/* Links and buttons */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  font-family: inherit;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 2px;
+}
+
+.btn-light {
+  background: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.32);
+}
+
+.btn-light:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.4);
+}
+
+.btn-solid {
+  background: var(--color-primary);
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+  border-color: transparent;
+}
+
+.btn-solid:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
+/* ========================= */
+/* Landing page              */
+/* ========================= */
+
+.landing-page {
+  position: relative;
+  min-height: 100vh;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+      circle at 15% 15%,
+      rgba(15, 23, 42, 0.3),
+      transparent 55%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(15, 23, 42, 0.3),
+      rgba(15, 23, 42, 0.75)
+    );
+  z-index: -1;
+}
+
+.landing-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 3rem;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 34px;
+  width: auto;
+}
+
+.login-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.login-caption {
+  opacity: 0.9;
+}
+
+.landing-main {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  min-height: calc(100vh - 90px);
+  padding: 0 3rem 3rem;
+}
+
+.contact-text {
+  max-width: 520px;
+  background: rgba(15, 23, 42, 0.7);
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+  border-left: 3px solid rgba(226, 232, 240, 0.85);
+}
+
+.contact-text h2 {
+  margin: 0 0 0.5rem;
+  font-weight: 300;
+  font-size: 1.85rem;
+}
+
+.contact-text p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.contact-text a {
+  color: #d7dee7;
+}
+
+/* ========================= */
+/* Dashboard page            */
+/* ========================= */
+
+.dashboard-page {
+  min-height: 100vh;
+  background: var(--color-bg);
+  padding: 1.5rem 2.5rem 3rem;
+}
+
+.app-shell-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.app-shell-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.app-shell-header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+
+.app-logo {
+  height: 32px;
+  width: auto;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.logout-link {
+  border-radius: 999px;
+  border: 1px solid transparent;
+  padding: 0.4rem 0.9rem;
+  background: transparent;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.logout-link:hover {
+  background: #e5e7eb;
+  border-color: #d4d4d8;
+  color: var(--color-text);
+}
+
+.dashboard-main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-card {
+  background: #ffffff;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  padding: 1.5rem 1.75rem 2rem;
+}
+
+/* Header area inside card */
+.dashboard-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.dashboard-header-main h1 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.dashboard-subtitle {
+  margin: 0.35rem 0 0.8rem;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.customer-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: #f8fafc;
+  font-size: 0.8rem;
+}
+
+.dashboard-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Tier toggle */
+.tier-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem;
+  border-radius: 999px;
+  background: var(--color-bg-soft);
+}
+
+.tier-button {
+  border: none;
+  background: transparent;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: #0f172a;
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.tier-button.active {
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.3);
+}
+
+/* Welcome row */
+.welcome-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.welcome-title {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Ships table */
+.ship-table-wrapper {
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.ship-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.ship-table thead {
+  background: #f8fafc;
+}
+
+.ship-table th,
+.ship-table td {
+  padding: 0.65rem 0.8rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ship-table th {
+  text-align: left;
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
+.ship-table tbody tr:hover {
+  background: #f1f5f9;
+}
+
+.ship-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Simple ship “icon” block */
+.ship-icon {
+  position: relative;
+  width: 20px;
+  height: 12px;
+  border-radius: 3px;
+  background: #0f172a;
+}
+
+.ship-icon::after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 4px;
+  border-radius: 4px;
+  background: #0f172a;
+}
+
+/* Status and power badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.1rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.badge-status-transit {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.badge-status-docked {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.badge-on {
+  background: #bbf7d0;
+  color: #166534;
+}
+
+.badge-off {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.badge-testing {
+  background: #e0f2fe;
+  color: #1d4ed8;
+}
+
+.badge-na {
+  background: #e5e7eb;
+  color: #6b7280;
+}
+
+.power-cell strong {
+  margin-right: 0.25rem;
+}
+
+
+/* Add vessel button row */
+.add-vessel-row {
+  margin-top: 0.75rem;
+}
+
+/* Modal styles */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modal-backdrop.is-open {
+  display: flex;
+}
+
+.modal-dialog {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.5rem 1.5rem 1.25rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.28);
+  border: 1px solid #e5e7eb;
+}
+
+.modal-header h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.modal-label {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.modal-input {
+  padding: 0.55rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #cbd5e1;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+.modal-input:focus {
+  outline: 2px solid #38bdf8;
+  outline-offset: 1px;
+  border-color: #38bdf8;
+}
+
+.modal-actions {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.modal-cancel {
+  background: #e5e7eb;
+  color: #374151;
+  box-shadow: none;
+}
+
+.modal-cancel:hover {
+  background: #d4d4d8;
+}
+
+/* Admin page: links, invite form, user table */
+
+.admin-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.admin-link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.admin-link:hover {
+  color: var(--color-text);
+}
+
+.admin-link-separator {
+  opacity: 0.6;
+}
+
+.admin-section-title {
+  margin: 1.25rem 0 0.75rem;
+  font-size: 0.95rem;
+}
+
+/* Invite form */
+.admin-invite-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  align-items: flex-end;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.admin-invite-field {
+  display: flex;
+  flex-direction: column;
+  min-width: 210px;
+  flex: 1 1 220px;
+}
+
+.admin-invite-field label {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  margin-bottom: 0.25rem;
+}
+
+.admin-invite-field input,
+.admin-invite-field select {
+  padding: 0.45rem 0.7rem;
+  border-radius: 0.5rem;
+  border: 1px solid #cbd5e1;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+.admin-invite-field input:focus,
+.admin-invite-field select:focus {
+  outline: 2px solid #38bdf8;
+  outline-offset: 1px;
+  border-color: #38bdf8;
+}
+
+.admin-invite-actions {
+  display: flex;
+  align-items: center;
+}
+
+/* User table */
+.user-table-wrapper {
+  margin-top: 0.75rem;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.user-table thead {
+  background: #f8fafc;
+}
+
+.user-table th,
+.user-table td {
+  padding: 0.65rem 0.8rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.user-table th {
+  text-align: left;
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
+.user-table tbody tr:hover {
+  background: #f1f5f9;
+}
+
+/* Role select in table */
+.role-select {
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.8rem;
+  background: #ffffff;
+}
+
+/* Status pills */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.status-active {
+  background: #bbf7d0;
+  color: #166534;
+}
+
+.status-invited {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .landing-header,
+  .landing-main {
+    padding-inline: 1.5rem;
+  }
+
+  .dashboard-page {
+    padding-inline: 1.25rem;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dashboard-header-actions {
+    align-self: stretch;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 600px) {
+  .landing-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .landing-main {
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+
+  .contact-text {
+    max-width: 100%;
+  }
+
+  .dashboard-card {
+    padding-inline: 1.25rem;
+  }
+
+  .ship-table th,
+  .ship-table td {
+    padding-inline: 0.6rem;
+  }
+}

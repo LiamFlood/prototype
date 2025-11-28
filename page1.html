@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pascal ALSO – Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="dashboard-page">
+  <!-- Top app bar -->
+  <header class="app-shell-header">
+  <div class="app-shell-header-left">
+    <img
+      class="app-logo"
+      src="https://also-test-gui.azurewebsites.net/assets/logo-blue-KAaU-XRN.png"
+      alt="Pascal Technologies logo"
+    />
+    <p class="app-title">ALS dashboard</p>
+  </div>
+
+  <div class="app-shell-header-right">
+    <a href="admin.html" class="logout-link">ADMIN</a>
+<button
+  type="button"
+  class="logout-link"
+  onclick="window.location.href='front-page.html'"
+>
+  Log out
+</button>
+  </div>
+</header>
+
+
+  <!-- Main content card -->
+  <main class="dashboard-main">
+    <section class="dashboard-card">
+      <!-- Card header: title, customer, tier toggle, report button -->
+      <div class="dashboard-header">
+        <div class="dashboard-header-main">
+          <h1>ALS dashboard for Pascal Technologies</h1>
+          <p class="dashboard-subtitle">
+            Overview of ships connected to your air lubrication system.
+          </p>
+          <div class="customer-pill">
+            Pascal Technologies
+          </div>
+        </div>
+
+        <div class="dashboard-header-actions">
+          <div class="tier-toggle" aria-label="Tier filter">
+            <button type="button" class="tier-button active">Tier 1</button>
+            <button type="button" class="tier-button">Tier 2</button>
+          </div>
+
+          <a href="#" class="btn btn-solid">
+            Report generator
+          </a>
+        </div>
+      </div>
+
+      <!-- Welcome text -->
+      <div class="welcome-row">
+        <div class="welcome-text">
+          <div class="welcome-title">Welcome Liam Flood!</div>
+        </div>
+      </div>
+
+      <!-- Ships table -->
+      <div class="ship-table-wrapper">
+        <table class="ship-table">
+          <thead>
+            <tr>
+              <th>Ship</th>
+              <th>Last updated</th>
+              <th>Status</th>
+              <th>Reported ALS power</th>
+              <th>ALS Recommendation</th>
+              <th>Predicted savings</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="ship-name-cell">
+                  <span class="ship-icon" aria-hidden="true"></span>
+                  <span>LinkVC</span>
+                </div>
+              </td>
+              <td>1 hour ago</td>
+              <td>
+                <span class="badge badge-status-transit">In transit</span>
+              </td>
+              <td class="power-cell">
+                <span class="badge badge-on">ON</span>
+                <strong>223</strong> kW
+              </td>
+              <td class="power-cell">
+                <span class="badge badge-testing">TESTING</span>
+                <strong>200</strong> kW
+              </td>
+              <td>
+                <span class="badge badge-na">N/A</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="ship-name-cell">
+                  <span class="ship-icon" aria-hidden="true"></span>
+                  <span>Momentum</span>
+                </div>
+              </td>
+              <td>Just now</td>
+              <td>
+                <span class="badge badge-status-docked">Docked</span>
+              </td>
+              <td class="power-cell">
+                <span class="badge badge-off">OFF</span>
+              </td>
+              <td class="power-cell">
+                <span class="badge badge-off">OFF</span>
+              </td>
+              <td>
+                <span class="badge badge-na">N/A</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="ship-name-cell">
+                  <span class="ship-icon" aria-hidden="true"></span>
+                  <span>OceanZero</span>
+                </div>
+              </td>
+              <td>17 minutes ago</td>
+              <td>
+                <span class="badge badge-status-docked">Docked</span>
+              </td>
+              <td class="power-cell">
+                <span class="badge badge-off">OFF</span>
+              </td>
+              <td class="power-cell">
+                <span class="badge badge-off">OFF</span>
+              </td>
+              <td>
+                <span class="badge badge-na">N/A</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="ship-name-cell">
+                  <span class="ship-icon" aria-hidden="true"></span>
+                  <span>CoFounder</span>
+                </div>
+              </td>
+              <td>34 minutes ago</td>
+              <td>
+                <span class="badge badge-status-transit">In transit</span>
+              </td>
+              <td class="power-cell">
+                <span class="badge badge-on">ON</span>
+                <strong>154</strong> kW
+              </td>
+              <td class="power-cell">
+                <span class="badge badge-testing">TESTING</span>
+                <strong>190</strong> kW
+              </td>
+              <td>
+                <span class="badge badge-na">N/A</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+            <!-- Add vessel button under the table -->
+      <div class="add-vessel-row">
+        <button type="button" class="btn btn-solid" id="add-vessel-button">
+          Add vessel
+        </button>
+      </div>
+
+      <!-- Add vessel modal -->
+      <div class="modal-backdrop" id="add-vessel-modal" aria-hidden="true">
+        <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="add-vessel-title">
+          <div class="modal-header">
+            <h2 id="add-vessel-title">Add vessel</h2>
+          </div>
+          <form class="modal-body" id="add-vessel-form">
+            <label for="imo-input" class="modal-label">
+              IMO number
+            </label>
+            <input
+              id="imo-input"
+              name="imo"
+              type="text"
+              class="modal-input"
+              placeholder="Enter IMO number"
+              autocomplete="off"
+              required
+            />
+            <div class="modal-actions">
+              <button type="button" class="btn modal-cancel" id="cancel-add-vessel">
+                Cancel
+              </button>
+              <button type="submit" class="btn btn-solid">
+                Add vessel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var modal = document.getElementById('add-vessel-modal');
+      var openButton = document.getElementById('add-vessel-button');
+      var cancelButton = document.getElementById('cancel-add-vessel');
+      var form = document.getElementById('add-vessel-form');
+      var imoInput = document.getElementById('imo-input');
+
+      function openModal() {
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        imoInput.value = '';
+        window.setTimeout(function () {
+          imoInput.focus();
+        }, 10);
+      }
+
+      function closeModal() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+
+      openButton.addEventListener('click', openModal);
+
+      cancelButton.addEventListener('click', function (event) {
+        event.preventDefault();
+        closeModal();
+      });
+
+      modal.addEventListener('click', function (event) {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var value = imoInput.value.trim();
+        if (!value) {
+          imoInput.focus();
+          return;
+        }
+        // Prototype behaviour only – replace with real logic later
+        alert('New vessel IMO number: ' + value);
+        closeModal();
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          closeModal();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

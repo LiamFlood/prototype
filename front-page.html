@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pascal ALSO – Landing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="landing-page">
+  <!-- Background video -->
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="https://also-test-gui.azurewebsites.net/assets/als-C06QZvcz.mp4" type="video/mp4" />
+  </video>
+  <div class="overlay"></div>
+
+  <!-- Header -->
+  <header class="landing-header">
+    <div class="logo-container">
+      <img
+        class="logo"
+        src="https://also-test-gui.azurewebsites.net/assets/logo-white-DJ6WDn9L.png"
+        alt="Pascal Technologies logo"
+      />
+    </div>
+
+ <div class="login-container">
+  <span class="login-caption">Already a customer?</span>
+  <!-- Just a link to the prototype dashboard -->
+  <a class="btn btn-light" href="page1.html">Sign in</a>
+  <!-- New: register for access button -->
+  <button type="button" class="btn btn-light" id="register-button">
+    Register for access
+  </button>
+</div>
+
+  </header>
+
+  <!-- Bottom-left text -->
+  <main class="landing-main">
+    <section class="contact-text">
+      <h2>Do you need help analyzing and optimizing your air lubrication system?</h2>
+      <p>
+        Contact us at
+        <a href="mailto:shipping@pascaltech.com">shipping@pascaltech.com</a>
+      </p>
+    </section>
+  </main>
+
+  <!-- Register for access modal -->
+  <div class="modal-backdrop" id="register-modal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="register-title">
+      <div class="modal-header">
+        <h2 id="register-title">Request access</h2>
+      </div>
+      <form class="modal-body" id="register-form">
+        <label for="register-name" class="modal-label">
+          Name
+        </label>
+        <input
+          id="register-name"
+          name="name"
+          type="text"
+          class="modal-input"
+          placeholder="Your name"
+          required
+        />
+
+        <label for="register-company" class="modal-label">
+          Company
+        </label>
+        <input
+          id="register-company"
+          name="company"
+          type="text"
+          class="modal-input"
+          placeholder="Company name"
+          required
+        />
+
+        <label for="register-email" class="modal-label">
+          Email
+        </label>
+        <input
+          id="register-email"
+          name="email"
+          type="email"
+          class="modal-input"
+          placeholder="name@company.com"
+          required
+        />
+
+        <label for="register-note" class="modal-label">
+          How will you use the dashboard?
+        </label>
+        <textarea
+          id="register-note"
+          name="note"
+          class="modal-input"
+          placeholder="Example: Fleet performance team, reviewing ALS savings weekly..."
+          rows="3"
+        ></textarea>
+
+        <div class="modal-actions">
+          <button type="button" class="btn modal-cancel" id="cancel-register">
+            Cancel
+          </button>
+          <button type="submit" class="btn btn-solid">
+            Submit request
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var modal = document.getElementById('register-modal');
+      var openButton = document.getElementById('register-button');
+      var cancelButton = document.getElementById('cancel-register');
+      var form = document.getElementById('register-form');
+      var nameInput = document.getElementById('register-name');
+      var companyInput = document.getElementById('register-company');
+      var emailInput = document.getElementById('register-email');
+      var noteInput = document.getElementById('register-note');
+
+      function openModal() {
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        nameInput.value = '';
+        companyInput.value = '';
+        emailInput.value = '';
+        noteInput.value = '';
+        window.setTimeout(function () {
+          nameInput.focus();
+        }, 10);
+      }
+
+      function closeModal() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+
+      openButton.addEventListener('click', openModal);
+
+      cancelButton.addEventListener('click', function (event) {
+        event.preventDefault();
+        closeModal();
+      });
+
+      modal.addEventListener('click', function (event) {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        var name = nameInput.value.trim();
+        var company = companyInput.value.trim();
+        var email = emailInput.value.trim();
+        var note = noteInput.value.trim();
+
+        if (!name) {
+          nameInput.focus();
+          return;
+        }
+        if (!company) {
+          companyInput.focus();
+          return;
+        }
+        if (!email) {
+          emailInput.focus();
+          return;
+        }
+
+        // Prototype behaviour only – swap for real logic later
+        alert(
+          'Access request submitted:\\n\\n' +
+          'Name: ' + name + '\\n' +
+          'Company: ' + company + '\\n' +
+          'Email: ' + email + (note ? '\\nNote: ' + note : '')
+        );
+
+        closeModal();
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          closeModal();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pascal ALSO – Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="dashboard-page">
+  <!-- Top app bar -->
+  <header class="app-shell-header">
+    <div class="app-shell-header-left">
+      <img
+        class="app-logo"
+        src="https://also-test-gui.azurewebsites.net/assets/logo-blue-KAaU-XRN.png"
+        alt="Pascal Technologies logo"
+      />
+      <p class="app-title">ALS admin</p>
+    </div>
+
+    <div class="app-shell-header-right">
+      <a href="page1.html" class="logout-link">Dashboard</a>
+<button
+  type="button"
+  class="logout-link"
+  onclick="window.location.href='front-page.html'"
+>
+  Log out
+</button>
+    </div>
+  </header>
+
+  <!-- Main content card -->
+  <main class="dashboard-main">
+    <section class="dashboard-card">
+      <!-- Header -->
+      <div class="dashboard-header">
+        <div class="dashboard-header-main">
+          <h1>User management</h1>
+          <p class="dashboard-subtitle">
+            Manage access, roles and legal settings for ALSO dashboard users.
+          </p>
+          <div class="admin-links">
+            <a href="terms.html" class="admin-link">Terms and conditions</a>
+            <span class="admin-link-separator">•</span>
+            <a href="data-management.html" class="admin-link">Data management</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Invite new user -->
+      <section class="admin-invite">
+        <h2 class="admin-section-title">Invite new user</h2>
+        <form class="admin-invite-form" id="invite-user-form">
+          <div class="admin-invite-field">
+            <label for="invite-email">Email address</label>
+            <input
+              id="invite-email"
+              name="email"
+              type="email"
+              placeholder="name@company.com"
+              required
+            />
+          </div>
+          <div class="admin-invite-field">
+            <label for="invite-role">Role</label>
+            <select id="invite-role" name="role" class="role-select">
+              <option value="ADMIN">ADMIN</option>
+              <option value="ONSHORE" selected>ONSHORE</option>
+              <option value="OFFSHORE">OFFSHORE</option>
+            </select>
+          </div>
+          <div class="admin-invite-actions">
+            <button type="submit" class="btn btn-solid">
+              Send invite
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Users table -->
+      <section class="admin-users">
+        <h2 class="admin-section-title">Current users</h2>
+        <div class="user-table-wrapper">
+          <table class="user-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Liam Flood</td>
+                <td>liam.flood@pascaltech.com</td>
+                <td>
+                  <select class="role-select" data-user-name="Liam Flood">
+                    <option value="ADMIN" selected>ADMIN</option>
+                    <option value="ONSHORE">ONSHORE</option>
+                    <option value="OFFSHORE">OFFSHORE</option>
+                  </select>
+                </td>
+                <td>
+                  <span class="status-pill status-active">Active</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Onshore Operator</td>
+                <td>onshore.operator@example.com</td>
+                <td>
+                  <select class="role-select" data-user-name="Onshore Operator">
+                    <option value="ADMIN">ADMIN</option>
+                    <option value="ONSHORE" selected>ONSHORE</option>
+                    <option value="OFFSHORE">OFFSHORE</option>
+                  </select>
+                </td>
+                <td>
+                  <span class="status-pill status-active">Active</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Offshore Supervisor</td>
+                <td>offshore.supervisor@example.com</td>
+                <td>
+                  <select class="role-select" data-user-name="Offshore Supervisor">
+                    <option value="ADMIN">ADMIN</option>
+                    <option value="ONSHORE">ONSHORE</option>
+                    <option value="OFFSHORE" selected>OFFSHORE</option>
+                  </select>
+                </td>
+                <td>
+                  <span class="status-pill status-invited">Invited</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      // Invite form: prototype behaviour is just an alert
+      var inviteForm = document.getElementById('invite-user-form');
+      var inviteEmail = document.getElementById('invite-email');
+      var inviteRole = document.getElementById('invite-role');
+
+      inviteForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var email = inviteEmail.value.trim();
+        var role = inviteRole.value;
+
+        if (!email) {
+          inviteEmail.focus();
+          return;
+        }
+
+        alert('Invite sent to ' + email + ' with role ' + role + '.');
+        inviteEmail.value = '';
+        inviteRole.value = 'ONSHORE';
+      });
+
+      // Role changes: prototype alert
+      var roleSelects = document.querySelectorAll('.role-select[data-user-name]');
+      roleSelects.forEach(function (select) {
+        select.addEventListener('change', function () {
+          var name = this.getAttribute('data-user-name') || 'User';
+          var newRole = this.value;
+          alert('Updated role for ' + name + ' to ' + newRole + '.');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

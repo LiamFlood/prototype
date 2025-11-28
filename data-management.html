@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Pascal ALS – Data Management & Telemetry Integration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Data management, telemetry integration and data & documentation requirements for the Pascal ALSO platform." />
+  <style>
+    :root {
+      --primary: #0b3c5d;
+      --accent: #00b3b3;
+      --bg: #f5f7fb;
+      --text: #222;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), #152d4e);
+      color: white;
+      padding: 2.5rem 1.25rem;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    header h1 {
+      margin: 0 0 0.5rem;
+      font-size: 1.9rem;
+      letter-spacing: 0.03em;
+    }
+
+    header p {
+      margin: 0.2rem 0;
+      max-width: 780px;
+      opacity: 0.95;
+    }
+
+    header .meta {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+
+    main {
+      padding: 2rem 1.25rem 3rem;
+    }
+
+    section {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.75rem 1.5rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 8px 18px rgba(15, 35, 95, 0.06);
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      color: var(--primary);
+      letter-spacing: 0.02em;
+    }
+
+    h3 {
+      margin-top: 1.4rem;
+      font-size: 1.05rem;
+      color: #333;
+    }
+
+    p {
+      margin: 0.35rem 0 0.75rem;
+    }
+
+    ul {
+      padding-left: 1.3rem;
+      margin: 0.1rem 0 0.75rem;
+    }
+
+    li {
+      margin-bottom: 0.25rem;
+    }
+
+    .tagline {
+      font-size: 0.95rem;
+      border-left: 3px solid var(--accent);
+      padding-left: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .number {
+      font-weight: 600;
+      color: var(--primary);
+      margin-right: 0.35rem;
+    }
+
+    .small {
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+
+    .note {
+      border-left: 3px solid var(--accent);
+      padding-left: 0.75rem;
+      margin: 0.25rem 0 0.8rem;
+      font-size: 0.9rem;
+      color: #444;
+      background: #f5fbfb;
+    }
+
+    .table-scroll {
+      overflow-x: auto;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 0.4rem 0 1rem;
+      font-size: 0.9rem;
+    }
+
+    th, td {
+      border: 1px solid #dde3f3;
+      padding: 0.45rem 0.55rem;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f3f5fd;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #7a8296;
+      padding: 0 1.25rem 2.5rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* API submission form at the top */
+    .data-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid #dde3f3;
+    }
+
+    .data-form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .data-field {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 260px;
+      min-width: 220px;
+    }
+
+    .data-field label {
+      font-size: 0.85rem;
+      color: #555;
+      margin-bottom: 0.25rem;
+    }
+
+    .data-field input,
+    .data-field textarea {
+      padding: 0.5rem 0.7rem;
+      border-radius: 0.5rem;
+      border: 1px solid #cbd5e1;
+      font-size: 0.9rem;
+      font-family: inherit;
+    }
+
+    .data-field textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .data-field input:focus,
+    .data-field textarea:focus {
+      outline: 2px solid #38bdf8;
+      outline-offset: 1px;
+      border-color: #38bdf8;
+    }
+
+    .data-form-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 0.25rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 10px 25px rgba(0, 179, 179, 0.35);
+      transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background-color 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease;
+    }
+
+    .btn:hover {
+      background: #039393;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 2rem 1.1rem;
+      }
+
+      main {
+        padding: 1.5rem 1.1rem 2.5rem;
+      }
+
+      section {
+        padding: 1.4rem 1.15rem;
+      }
+    }
+
+        .header-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .header-main {
+      max-width: 780px;
+    }
+
+    .header-actions {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.2rem;
+    }
+
+    .header-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      font-size: 0.8rem;
+      text-decoration: none;
+      color: #ffffff;
+      background: rgba(15, 23, 42, 0.15);
+      white-space: nowrap;
+    }
+
+    .header-link-ghost {
+      background: transparent;
+    }
+
+    .header-link:hover {
+      background: rgba(15, 23, 42, 0.28);
+      text-decoration: none;
+    }
+
+    @media (max-width: 640px) {
+      .header-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header-actions {
+        margin-top: 0.75rem;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="header-top">
+        <div class="header-main">
+          <h1>Data management &amp; telemetry integration</h1>
+          <p class="tagline">
+            How data flows into the ALSO platform, and what we need from each customer to keep the
+            analysis predictable and reliable.
+          </p>
+          <p class="meta">
+            This page combines the telemetry pipeline integration options and the data &amp;
+            documentation requirements into a single view for technical and operational stakeholders.
+          </p>
+        </div>
+
+        <div class="header-actions">
+          <a href="admin.html" class="header-link">Admin</a>
+          <a href="front-page.html" class="header-link header-link-ghost">Log out</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <main>
+    <div class="container">
+
+      <!-- 1. API link submission form -->
+      <section id="api-form-section">
+        <h2><span class="number">1.</span> Submit an API or data endpoint</h2>
+        <p>
+          Use this form to propose a new API or data endpoint for ALSO to connect to. This is for
+          internal coordination only; in the live product this will trigger a proper workflow.
+        </p>
+
+        <form id="api-endpoint-form" class="data-form">
+          <div class="data-form-row">
+            <div class="data-field">
+              <label for="api-url">API or data endpoint URL</label>
+              <input
+                type="url"
+                id="api-url"
+                name="apiUrl"
+                placeholder="https://api.example.com/v1/telemetry"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="data-form-row">
+            <div class="data-field">
+              <label for="api-note">How should this endpoint be used?</label>
+              <textarea
+                id="api-note"
+                name="apiNote"
+                placeholder="Example: Poll every 5 minutes for all active vessels; use 'imo' and 'timestamp' as keys. Requires header X-API-KEY from the customer."
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="data-form-actions">
+            <button type="submit" class="btn">
+              Submit endpoint
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- 2. Telemetry pipeline integration options -->
+      <section id="telemetry">
+        <h2><span class="number">2.</span> Telemetry data pipeline options</h2>
+        <p>
+          ALSO needs a predictable data pipeline from each ship in order to calculate savings and
+          recommendations. We support several integration patterns, listed here roughly in order of
+          preference.
+        </p>
+
+        <h3>2.1 APIs (preferred)</h3>
+        <p>
+          The preferred option is for Pascal to read from one or more REST-style APIs where the
+          telemetry is exposed. In this model:
+        </p>
+        <ul>
+          <li>Customer (or a third party) hosts the API and controls data storage behind it;</li>
+          <li>Pascal receives API documentation and credentials for connecting; and</li>
+          <li>Pascal configures which endpoints to query, how often, and with which filters.</li>
+        </ul>
+        <p>
+          This has several advantages: high flexibility in how often we fetch data, access to new
+          data as soon as it is available from the API, and a one-time setup with little ongoing
+          maintenance for both sides. :contentReference[oaicite:1]{index=1}
+        </p>
+
+        <h3>2.2 Periodic tabulated text files</h3>
+        <p>
+          Where APIs are not available, we can ingest periodic dispatches of tabulated text files
+          such as CSV, Parquet or other delimited formats, as long as the internal structure stays
+          consistent across files.
+        </p>
+        <p>
+          Typical patterns:
+        </p>
+        <ul>
+          <li>Customer exports data manually from their telemetry dashboard in a standard layout; or</li>
+          <li>Customer sets up an automated export that drops new files on a schedule
+              (for example daily or weekly).</li>
+        </ul>
+        <p>
+          The downside is that it often requires more work on the customer side and typically
+          limits how often ALSO can refresh its analysis. :contentReference[oaicite:2]{index=2}
+        </p>
+
+        <h3>2.3 Custom integrations</h3>
+        <p>
+          If neither APIs nor regular file exports are feasible, we can agree a custom integration.
+          This usually requires more work up front and can be more sensitive to changes in the
+          customer platform. Examples include: :contentReference[oaicite:3]{index=3}
+        </p>
+        <ul>
+          <li>
+            A read-only database connection (for example PostgreSQL, SQL Server or MySQL) with a
+            stable schema or dedicated reporting view that Pascal queries on a schedule.
+          </li>
+          <li>
+            Periodic ingestion from object storage or a data lake (for example Azure Blob Storage,
+            Azure Data Lake or S3-compatible storage), where Customer writes telemetry snapshots
+            to a designated path in a defined folder structure.
+          </li>
+          <li>
+            Subscription to a message or event stream (for example Azure Event Hubs, Kafka, MQTT),
+            where Customer publishes telemetry events and Pascal subscribes as a downstream
+            consumer.
+          </li>
+          <li>
+            A lightweight “bridge” service in Customer’s environment that reads from internal
+            systems and forwards the relevant telemetry securely to a Pascal endpoint over HTTPS.
+          </li>
+        </ul>
+      </section>
+
+      <!-- 3. Data & documentation requirements -->
+      <section id="data-doc">
+        <h2><span class="number">3.</span> Data and documentation requirements</h2>
+        <p>
+          In addition to how data moves, we keep a simple data &amp; documentation sheet for each
+          customer. This sheet summarises what data we expect, where it comes from, and how often
+          it updates. It is normally a direct translation of your “Data and Documentation Request”
+          spreadsheet into this shared view.
+        </p>
+
+        <p>
+          The exact content will vary per project, but it usually covers at least the following
+          categories:
+        </p>
+
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Example fields</th>
+                <th>Source system</th>
+                <th>Update frequency</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Vessel identity</td>
+                <td>Vessel name, IMO number, fleet, ship type</td>
+                <td>Fleet management / PMS</td>
+                <td>Static / on change</td>
+                <td>Must uniquely identify each hull used in ALSO.</td>
+              </tr>
+              <tr>
+                <td>Operational telemetry</td>
+                <td>Speed over ground, shaft power, fuel flow, draught, wind, sea state</td>
+                <td>Telemetry platform / sensor gateway</td>
+                <td>As captured (for example every 1–5 minutes)</td>
+                <td>Granularity and lag agreed during onboarding.</td>
+              </tr>
+              <tr>
+                <td>Noon / manual reports</td>
+                <td>Position, distance sailed, ROB, consumed fuel, weather summary</td>
+                <td>Noon report system / spreadsheets</td>
+                <td>Daily or per voyage</td>
+                <td>Used for validation and for backfilling gaps in telemetry.</td>
+              </tr>
+              <tr>
+                <td>Commercial / reference data</td>
+                <td>Charterparty speed and consumption, route constraints, emission targets</td>
+                <td>Commercial systems or contract documents</td>
+                <td>On change</td>
+                <td>Sets targets and benchmarks for optimisation.</td>
+              </tr>
+              <tr>
+                <td>Technical documentation</td>
+                <td>Speed–power curves, hull and propeller data, engine curves</td>
+                <td>PDFs / technical documentation</td>
+                <td>On change</td>
+                <td>Used for model calibration and validation.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="small">
+          For the real product, this table will be populated from your actual “Data and
+          Documentation Request” sheet, including the exact fields, column names and telemetry tags
+          agreed for each vessel or fleet.
+        </p>
+      </section>
+
+      <!-- 4. Responsibilities -->
+      <section id="responsibilities">
+        <h2><span class="number">4.</span> Responsibilities</h2>
+        <p>
+          To keep the data pipeline healthy:
+        </p>
+        <ul>
+          <li>Customer ensures the agreed APIs or file exports remain available and documented.</li>
+          <li>Pascal configures and monitors the ingestion from those endpoints into ALSO.</li>
+          <li>Any schema or interface changes are communicated in advance so we can update the
+              pipeline without losing data.</li>
+          <li>The data &amp; documentation sheet is updated when new vessels, sources or fields are added.</li>
+        </ul>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      Pascal ALSO – Data management &amp; telemetry integration · Internal prototype page. In a live
+      deployment, the form above would create a tracked integration request instead of a simple alert.
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById('api-endpoint-form');
+      var urlInput = document.getElementById('api-url');
+      var noteInput = document.getElementById('api-note');
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        var url = (urlInput.value || '').trim();
+        var note = (noteInput.value || '').trim();
+
+        if (!url) {
+          urlInput.focus();
+          return;
+        }
+        if (!note) {
+          noteInput.focus();
+          return;
+        }
+
+        // Prototype behaviour only – swap this out later for real backend logic
+        alert(
+          'New data endpoint submitted:\\n\\n' +
+          'URL: ' + url + '\\n' +
+          'Usage note: ' + note
+        );
+
+        urlInput.value = '';
+        noteInput.value = '';
+      });
+    })();
+  </script>
+</body>
+</html>
