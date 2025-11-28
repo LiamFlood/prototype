@@ -30,53 +30,59 @@
     </div>
   </header>
 
-  <!-- Main content card -->
-  <main class="dashboard-main">
-    <section class="dashboard-card">
-      <!-- Header -->
-      <div class="dashboard-header">
-        <div class="dashboard-header-main">
-          <h1>User management</h1>
-          <p class="dashboard-subtitle">
-            Manage access, roles and legal settings for ALSO dashboard users.
-          </p>
-          <div class="admin-links">
-            <a href="terms.html" class="admin-link">Terms and conditions</a>
-            <span class="admin-link-separator">•</span>
-            <a href="data-management.html" class="admin-link">Data management</a>
-          </div>
-        </div>
+<main class="dashboard-main">
+  <!-- Admin section -->
+  <section class="dashboard-card admin-section">
+    <header class="dashboard-header">
+      <div class="dashboard-header-main">
+        <h1>Admin</h1>
+        <p class="dashboard-subtitle">
+          View legal documentation and data requests for ALSO.
+        </p>
+        <a href="terms.html" class="dashboard-subtitle">Terms and conditions</a>
+        <span class="admin-link-separator">•</span>
+        <a href="data-management.html" class="dashboard-subtitle">Data management</a>
       </div>
+    </header>
+  </section>
 
-      <!-- Invite new user -->
-      <section class="admin-invite">
-        <h2 class="admin-section-title">Invite new user</h2>
-        <form class="admin-invite-form" id="invite-user-form">
-          <div class="admin-invite-field">
-            <label for="invite-email">Email address</label>
-            <input
-              id="invite-email"
-              name="email"
-              type="email"
-              placeholder="name@company.com"
-              required
-            />
-          </div>
-          <div class="admin-invite-field">
-            <label for="invite-role">Role</label>
-            <select id="invite-role" name="role" class="role-select">
-              <option value="ADMIN">ADMIN</option>
-              <option value="ONSHORE" selected>ONSHORE</option>
-              <option value="OFFSHORE">OFFSHORE</option>
-            </select>
-          </div>
-          <div class="admin-invite-actions">
-            <button type="submit" class="btn btn-solid">
-              Send invite
-            </button>
-          </div>
-        </form>
-      </section>
+  <!-- User management section -->
+  <section class="dashboard-card user-management">
+    <header class="user-management-header">
+      <h2>User management</h2>
+        <p class="dashboard-subtitle">
+          Manage access and roles for ALSO dashboard users.
+        </p>
+    </header>
+    <!-- Invite new user -->
+    <section class="admin-invite">
+      <h3 class="admin-section-title">Invite new user</h3>
+      <form class="admin-invite-form" id="invite-user-form">
+        <div class="admin-invite-field">
+          <label for="invite-email">Email address</label>
+          <input
+            id="invite-email"
+            name="email"
+            type="email"
+            placeholder="name@company.com"
+            required
+          />
+        </div>
+        <div class="admin-invite-field">
+          <label for="invite-role">Role</label>
+          <select id="invite-role" name="role" class="role-select">
+            <option value="ADMIN">ADMIN</option>
+            <option value="ONSHORE" selected>ONSHORE</option>
+            <option value="OFFSHORE">OFFSHORE</option>
+          </select>
+        </div>
+        <div class="admin-invite-actions">
+          <button type="submit" class="btn btn-solid">
+            Send invite
+          </button>
+        </div>
+      </form>
+    </section>
 
       <!-- Users table -->
       <section class="admin-users">
