@@ -23,16 +23,15 @@
       />
     </div>
 
- <div class="login-container">
-  <span class="login-caption">Already a customer?</span>
-  <!-- Just a link to the prototype dashboard -->
-  <a class="btn btn-light" href="page1.html">Sign in</a>
-  <!-- New: register for access button -->
-  <button type="button" class="btn btn-light" id="register-button">
-    Register for access
-  </button>
-</div>
-
+    <div class="login-container">
+      <span class="login-caption">Already a customer?</span>
+      <!-- Just a link to the prototype dashboard -->
+      <a class="btn btn-light" href="dashboard.html">Sign in</a>
+      <!-- New: register for access button -->
+      <button type="button" class="btn btn-light" id="register-button">
+        Register for access
+      </button>
+    </div>
   </header>
 
   <!-- Bottom-left text -->
@@ -45,6 +44,31 @@
       </p>
     </section>
   </main>
+
+  <!-- Role selection modal -->
+  <div class="modal-backdrop" id="role-modal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="role-title">
+      <div class="modal-header">
+        <h2 id="role-title">Choose view</h2>
+      </div>
+      <div class="modal-body">
+        <p>
+          Select how you want to work with ALS for this session.
+        </p>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-solid" id="role-onshore">
+            Onshore Analysis
+          </button>
+          <button type="button" class="btn btn-light" id="role-offshore">
+            Offshore Optimisation
+          </button>
+        </div>
+        <button type="button" class="btn modal-cancel" id="cancel-role">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- Register for access modal -->
   <div class="modal-backdrop" id="register-modal" aria-hidden="true">
@@ -62,35 +86,32 @@
           type="text"
           class="modal-input"
           placeholder="Your name"
-          required
         />
 
         <label for="register-company" class="modal-label">
-          Company
+          Company / organization
         </label>
         <input
           id="register-company"
           name="company"
           type="text"
           class="modal-input"
-          placeholder="Company name"
-          required
+          placeholder="Example: Pascal Technologies"
         />
 
         <label for="register-email" class="modal-label">
-          Email
+          Work email
         </label>
         <input
           id="register-email"
           name="email"
           type="email"
           class="modal-input"
-          placeholder="name@company.com"
-          required
+          placeholder="you@company.com"
         />
 
         <label for="register-note" class="modal-label">
-          How will you use the dashboard?
+          What are you working on?
         </label>
         <textarea
           id="register-note"
@@ -176,18 +197,79 @@
 
         // Prototype behaviour only – swap for real logic later
         alert(
-          'Access request submitted:\\n\\n' +
-          'Name: ' + name + '\\n' +
-          'Company: ' + company + '\\n' +
-          'Email: ' + email + (note ? '\\nNote: ' + note : '')
+          'Access request submitted:\n\n' +
+          'Name: ' + name + '\n' +
+          'Company: ' + company + '\n' +
+          'Email: ' + email + (note ? '\nNote: ' + note : '')
         );
 
         closeModal();
       });
 
+      // Role selection modal logic
+      var roleModal = document.getElementById('role-modal');
+      var signInButton = document.querySelector('.login-container a.btn.btn-light');
+      var roleOnshoreButton = document.getElementById('role-onshore');
+      var roleOffshoreButton = document.getElementById('role-offshore');
+      var roleCancelButton = document.getElementById('cancel-role');
+
+      function openRoleModal() {
+        if (!roleModal) return;
+        roleModal.classList.add('is-open');
+        roleModal.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeRoleModal() {
+        if (!roleModal) return;
+        roleModal.classList.remove('is-open');
+        roleModal.setAttribute('aria-hidden', 'true');
+      }
+
+      if (signInButton) {
+        signInButton.addEventListener('click', function (event) {
+          event.preventDefault();
+          openRoleModal();
+        });
+      }
+
+      if (roleCancelButton) {
+        roleCancelButton.addEventListener('click', function (event) {
+          event.preventDefault();
+          closeRoleModal();
+        });
+      }
+
+      if (roleModal) {
+        roleModal.addEventListener('click', function (event) {
+          if (event.target === roleModal) {
+            closeRoleModal();
+          }
+        });
+      }
+
+      if (roleOnshoreButton) {
+        roleOnshoreButton.addEventListener('click', function () {
+          // Onshore Analysis → existing dashboard
+          window.location.href = 'dashboard.html';
+        });
+      }
+
+      if (roleOffshoreButton) {
+        roleOffshoreButton.addEventListener('click', function () {
+          // Offshore Optimisation → Captain view
+          window.location.href = 'Captain.html';
+        });
+      }
+
       document.addEventListener('keydown', function (event) {
         if (event.key === 'Escape') {
           closeModal();
+        }
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          closeRoleModal();
         }
       });
     })();

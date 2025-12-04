@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Captain</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #ffffff;
+    }
+
+    /* Header */
+    .app-shell-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.5rem;
+      border-bottom: 1px solid #e5e7eb;
+      background: #ffffff;
+    }
+
+    .app-shell-header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .app-shell-header-right {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .app-logo {
+      height: 32px;
+      width: auto;
+    }
+
+
+.description {
+  margin-top: 14px;        /* more space under the blue number */
+  font-size: 11px;
+  color: #6b7280;
+  max-width: 260px;
+}
+
+    .logout-link {
+      border-radius: 999px;
+      border: 1px solid transparent;
+      padding: 0.4rem 0.9rem;
+      background: transparent;
+      color: #64748b;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition:
+        background-color 0.15s ease,
+        border-color 0.15s ease,
+        color 0.15s ease;
+    }
+
+    .logout-link:hover {
+      background: #e5e7eb;
+      border-color: #d4d4d8;
+      color: #0f172a;
+    }
+
+    /* Main ALS row */
+    .page-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 64px);
+      /* 64px-ish header height */
+    }
+
+    .power-row {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    align-items: flex-start; /* was center */
+    justify-content: center;
+    padding: 40px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    }
+
+
+    .block {
+      text-align: center;
+      padding: 0 40px;
+    }
+
+    .label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #999999;
+      margin-bottom: 6px;
+    }
+
+    .value {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1a73e8;
+    }
+
+    .divider {
+      width: 1px;
+      height: 60px;
+      background: #e2e2e2;
+    }
+
+
+    .pill-placeholder {
+  visibility: hidden;   /* keeps layout but doesn’t show */
+}
+
+    .pill {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 4px 14px;
+      border-radius: 999px;
+      background: #1a73e8;
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="app-shell-header">
+    <div class="app-shell-header-left">
+      <img
+        class="app-logo"
+        src="https://also-test-gui.azurewebsites.net/assets/logo-blue-KAaU-XRN.png"
+        alt="Pascal Technologies logo"
+      />
+    </div>
+
+    <div class="app-shell-header-right">
+      <button
+        type="button"
+        class="logout-link"
+        onclick="window.location.href='index.html'"
+      >
+        Log out
+      </button>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <div class="page-content">
+    <div class="power-row">
+<div class="block">
+  <div class="label">Current ALS Power</div>
+  <div class="value">223 kW</div>
+  <div class="pill pill-placeholder">Placeholder</div>
+  <div class="description">
+    Live measured output from the ALS system based on current vessel load and conditions.
+  </div>
+</div>
+
+
+      <div class="divider"></div>
+
+<div class="block">
+  <div class="label">ALS Recommendation</div>
+  <div class="value">160 kW</div>
+  <div class="pill">Testing</div>
+  <div class="description">
+    Suggested power level from ALS to optimise efficiency while keeping safety margins and performance targets.
+  </div>
+</div>
+    </div>
+  </div>
+</body>
+</html>
