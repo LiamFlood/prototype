@@ -310,6 +310,38 @@
       }
     }
 
+
+    /* Vessel data coverage table */
+    .vessel-coverage th,
+    .vessel-coverage td {
+      font-size: 0.88rem;
+    }
+
+    .vessel-coverage .category-cell {
+      white-space: nowrap;
+      font-weight: 600;
+    }
+
+    .vessel-coverage .tier-row th,
+    .vessel-coverage .tier-row td {
+      background: #0b3c5d;
+      color: #ffffff;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .vessel-coverage .tier-label {
+      text-align: left;
+    }
+
+    .vessel-coverage .tick-cell {
+      text-align: center;
+    }
+
+    .vessel-coverage tr.min-required td {
+      background: #e3f7d3;
+    }
+
   </style>
 </head>
 
@@ -383,16 +415,315 @@
         </form>
       </section>
 
-      <!-- 2. Telemetry pipeline integration options -->
+      <!-- 2. Vessel data coverage by parameter -->
+      <section id="vessel-data-coverage">
+        <h2><span class="number">2.</span> Vessel data coverage by parameter</h2>
+        <p>
+          This table shows, for each vessel, whether Pascal has approved telemetry or documentation
+          for the parameters in the original “Data and Documentation Request” sheet. The green rows
+          mark the minimum data set we need to support the standard empirica.ALS analysis.
+        </p>
+
+        <div class="table-scroll">
+          <table class="vessel-coverage">
+            <thead>
+              <tr>
+                <th rowspan="2">Category</th>
+                <th rowspan="2">Parameter</th>
+                <th colspan="4">Vessel</th>
+              </tr>
+              <tr>
+                <th>LinkVC</th>
+                <th>Momentum</th>
+                <th>OceanZero</th>
+                <th>Cofounder</th>
+              </tr>
+              <tr class="tier-row">
+                <th colspan="2" class="tier-label">Tier level we can support today with data provided.</th>
+                <td class="tier-cell">TBD</td>
+                <td class="tier-cell">TBD</td>
+                <td class="tier-cell">TBD</td>
+                <td class="tier-cell">TBD</td>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Navigation -->
+              <tr>
+                <td rowspan="15" class="category-cell">Navigation</td>
+                <td>STW</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr>
+                <td>Heading</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr class="min-required">
+                <td>COG</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr class="min-required">
+                <td>SOG</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr>
+                <td>Lat</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr>
+                <td>Lon</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr>
+                <td>Draft Fwd, mid, aft</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr class="min-required">
+                <td>Water Depth</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr>
+                <td>Apparent Wind Speed (AWS)</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr>
+                <td>Apparent Wind Direction (AWD)</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr>
+                <td>Rudder angle 1 and 2</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr>
+                <td>Heel/list</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr>
+                <td>Trim</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr>
+                <td>Roll</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr>
+                <td>Pitch</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+
+              <!-- Machinery -->
+              <tr>
+                <td rowspan="6" class="category-cell">Machinery</td>
+                <td>Main Engine Power 1 and 2</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr>
+                <td>Shaft Power 1 and 2</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr>
+                <td>RPM 1 and 2</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr>
+                <td>Shaft Torque 1 and 2</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr>
+                <td>Shaft Generator Output 1 and 2</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr>
+                <td>Combined Aux Generator load</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+
+              <!-- ALS -->
+              <tr>
+                <td rowspan="3" class="category-cell">ALS</td>
+                <td>Compressor Power</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr>
+                <td>All pressure sensors in system</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr>
+                <td>All flowmeters in system</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+
+              <!-- Documentation / Information -->
+              <tr>
+                <td rowspan="11" class="category-cell">Documentation / Information</td>
+                <td class="min-required">General arrangement</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr class="min-required">
+                <td>Stability Booklet</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr>
+                <td>EEDI report</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr>
+                <td>Propeller Curve</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr class="min-required">
+                <td>Propeller document (with diameter, pitch ratio, area ratio etc)</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr class="min-required">
+                <td>Engine room arrangement or Shaft arrangement</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr>
+                <td>ALS Piping and Instrumentation Diagram</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr class="min-required">
+                <td>ALS Nozzle Arrangement</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr class="min-required">
+                <td>Shell Expansion Plan</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr>
+                <td>Midship section</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+              <tr class="min-required">
+                <td>Navigation arrangement</td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+                <td class="tick-cell"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+          <div class="data-form-actions">
+            <button type="submit" class="btn">
+              Submit more data
+            </button>
+          </div>
+      </section>
+
+      <!-- 3. Telemetry pipeline integration options -->
       <section id="telemetry">
-        <h2><span class="number">2.</span> Telemetry data pipeline options</h2>
+        <h2><span class="number">3.</span> Telemetry data pipeline options</h2>
         <p>
           ALSO needs a predictable data pipeline from each ship in order to calculate savings and
           recommendations. We support several integration patterns, listed here roughly in order of
           preference.
         </p>
 
-        <h3>2.1 APIs (preferred)</h3>
+        <h3>3.1 APIs (preferred)</h3>
         <p>
           The preferred option is for Pascal to read from one or more REST-style APIs where the
           telemetry is exposed. In this model:
@@ -408,7 +739,7 @@
           maintenance for both sides. :contentReference[oaicite:1]{index=1}
         </p>
 
-        <h3>2.2 Periodic tabulated text files</h3>
+        <h3>3.2 Periodic tabulated text files</h3>
         <p>
           Where APIs are not available, we can ingest periodic dispatches of tabulated text files
           such as CSV, Parquet or other delimited formats, as long as the internal structure stays
@@ -427,7 +758,7 @@
           limits how often ALSO can refresh its analysis. :contentReference[oaicite:2]{index=2}
         </p>
 
-        <h3>2.3 Custom integrations</h3>
+        <h3>3.3 Custom integrations</h3>
         <p>
           If neither APIs nor regular file exports are feasible, we can agree a custom integration.
           This usually requires more work up front and can be more sensitive to changes in the
@@ -454,95 +785,7 @@
           </li>
         </ul>
       </section>
-
-      <!-- 3. Data & documentation requirements -->
-      <section id="data-doc">
-        <h2><span class="number">3.</span> Data and documentation requirements</h2>
-        <p>
-          In addition to how data moves, we keep a simple data &amp; documentation sheet for each
-          customer. This sheet summarises what data we expect, where it comes from, and how often
-          it updates. It is normally a direct translation of your “Data and Documentation Request”
-          spreadsheet into this shared view.
-        </p>
-
-        <p>
-          The exact content will vary per project, but it usually covers at least the following
-          categories:
-        </p>
-
-        <div class="table-scroll">
-          <table>
-            <thead>
-              <tr>
-                <th>Category</th>
-                <th>Example fields</th>
-                <th>Source system</th>
-                <th>Update frequency</th>
-                <th>Notes</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Vessel identity</td>
-                <td>Vessel name, IMO number, fleet, ship type</td>
-                <td>Fleet management / PMS</td>
-                <td>Static / on change</td>
-                <td>Must uniquely identify each hull used in ALSO.</td>
-              </tr>
-              <tr>
-                <td>Operational telemetry</td>
-                <td>Speed over ground, shaft power, fuel flow, draught, wind, sea state</td>
-                <td>Telemetry platform / sensor gateway</td>
-                <td>As captured (for example every 1–5 minutes)</td>
-                <td>Granularity and lag agreed during onboarding.</td>
-              </tr>
-              <tr>
-                <td>Noon / manual reports</td>
-                <td>Position, distance sailed, ROB, consumed fuel, weather summary</td>
-                <td>Noon report system / spreadsheets</td>
-                <td>Daily or per voyage</td>
-                <td>Used for validation and for backfilling gaps in telemetry.</td>
-              </tr>
-              <tr>
-                <td>Commercial / reference data</td>
-                <td>Charterparty speed and consumption, route constraints, emission targets</td>
-                <td>Commercial systems or contract documents</td>
-                <td>On change</td>
-                <td>Sets targets and benchmarks for optimisation.</td>
-              </tr>
-              <tr>
-                <td>Technical documentation</td>
-                <td>Speed–power curves, hull and propeller data, engine curves</td>
-                <td>PDFs / technical documentation</td>
-                <td>On change</td>
-                <td>Used for model calibration and validation.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p class="small">
-          For the real product, this table will be populated from your actual “Data and
-          Documentation Request” sheet, including the exact fields, column names and telemetry tags
-          agreed for each vessel or fleet.
-        </p>
-      </section>
-
-      <!-- 4. Responsibilities -->
-      <section id="responsibilities">
-        <h2><span class="number">4.</span> Responsibilities</h2>
-        <p>
-          To keep the data pipeline healthy:
-        </p>
-        <ul>
-          <li>Customer ensures the agreed APIs or file exports remain available and documented.</li>
-          <li>Pascal configures and monitors the ingestion from those endpoints into ALSO.</li>
-          <li>Any schema or interface changes are communicated in advance so we can update the
-              pipeline without losing data.</li>
-          <li>The data &amp; documentation sheet is updated when new vessels, sources or fields are added.</li>
-        </ul>
-      </section>
-
+      
     </div>
   </main>
 
