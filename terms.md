@@ -1,24 +1,24 @@
-# Pascal ALS Optimizer – SaaS Terms & Data Requirements
+# Pascal Empirica – SaaS Terms & Data Requirements
 
-These general terms and data requirements apply to the ALS Optimizer software-as-a-service provided by Pascal Technologies AS (“Pascal”) to each customer (“Customer”).
+These general terms and data requirements apply to the Empirica software-as-a-service provided by Pascal Technologies AS (“Pascal”) to each customer (“Customer”). Empirica consists of a series of modules for performance analysis and optimisation of martime energy efficiency technologies (EETS) such as airlubrication systems (ALS) and wind assisted propulsion (WAPS)
 
-This page is incorporated by reference into the ALS Optimizer Order Form / Front Page executed between Pascal and Customer (the “Order Form”). Capitalised terms used but not defined here have the meaning given in the Order Form.
+This page is incorporated by reference into the Empirica Order Form / Front Page executed between Pascal and Customer (the “Order Form”). Capitalised terms used but not defined here have the meaning given in the Order Form.
 
 ## 1. Scope and Structure of the Agreement
 
-(a) These Terms apply to Customer’s use of the ALS Optimizer SaaS service, any related professional services and integrations, and any associated documentation and materials that Pascal makes available (together, the “Service”).
+(a) These Terms apply to Customer’s use of the Empirca SaaS service, any related professional services and integrations, and any associated documentation and materials that Pascal makes available (together, the “Service”).
 
 (b) The contractual documents consist of:
 
 - The signed Order Form / front page (commercial details and signature page);
-- This ALS Optimizer SaaS Terms & Data Requirements page; and
+- This Empririca SaaS Terms & Data Requirements page; and
 - Any additional schedules or statements of work that the parties expressly reference in the Order Form.
 
 (c) In case of conflict, the Order Form prevails over this page, and this page prevails over any other documentation, unless the parties expressly agree otherwise in writing.
 
 ## 2. Service Description and Access
 
-(a) Pascal provides ALS Optimizer as a hosted service. Customer accesses the Service remotely over the internet through browser-based interfaces, APIs, and/or other access mechanisms specified by Pascal.
+(a) Pascal provides Empirica as a hosted service. Customer accesses the Service remotely over the internet through browser-based interfaces, APIs, and/or other access mechanisms specified by Pascal.
 
 (b) No software is delivered or installed on Customer systems, other than any lightweight connectors or agents that may be agreed for telemetry integration under Section 5.
 
@@ -55,8 +55,8 @@ ALS Optimizer relies on a predictable data pipeline from each vessel and/or flee
 
 ### 5.1 General Principles
 
-- Customer ensures that data sources required for ALS Optimizer are available in one of the integration patterns described below.
-- Pascal configures and maintains the ingestion pipeline from the agreed interfaces into the ALS Optimizer platform.
+- Customer ensures that data sources required for Empirica are available in one of the integration patterns described below.
+- Pascal configures and maintains the ingestion pipeline from the agreed interfaces into the Empirica platform.
 - Unless otherwise agreed, data is provided in UTC or clearly documented local time including offset.
 - Where schemas or formats change, Customer notifies Pascal in advance so ingestion can be adjusted without loss of data.
 
@@ -175,7 +175,7 @@ Pascal may perform scheduled maintenance windows; where possible these will be c
 
 ## 9. Limitation of Liability
 
-(a) Neither party excludes liability for death or personal injury caused by its negligence, for fraud, or for any other liability that cannot be excluded under applicable law.
+(a) Neither party excludes liability for any damages caused by its negligence, for fraud, or for any other liability that cannot be excluded under applicable law.
 
 (b) Subject to (a), neither party is liable to the other for any indirect, consequential, incidental or special losses, including loss of profit, revenue, or business interruption.
 
@@ -203,4 +203,4 @@ The governing law and dispute resolution mechanism (for example court jurisdicti
 
 ---
 
-Pascal ALS Optimizer – SaaS Terms & Data Requirements · This page may be updated from time to time. The version applicable to a given Order Form is the version in force on the date the Order Form is signed, unless the parties agree otherwise in writing.
+Pascal Empirica – SaaS Terms & Data Requirements · This page may be updated from time to time. The version applicable to a given Order Form is the version in force, and attached to the Order Form, on the date the Order Form is signed, unless the parties agree otherwise in writing.
