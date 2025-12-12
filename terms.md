@@ -147,6 +147,7 @@ In addition to the transport mechanisms above, Pascal and Customer will agree a 
 | Documentation / Information | Midship section                                                 |                                                                               |          |                                                                                 | Future          |
 | Documentation / Information | Propeller document (with diameter, pitch ratio, area ratio etc  |                                                                               | n/a      |                                                                                 | Future          |
 | Documentation / Information | Propeller Curve                                                 | propeller demand versus advance coefficient                                   | n/a      |                                                                                 | Future          |
+
 The Data & Documentation Sheet, once agreed, forms part of the Agreement and may be updated by mutual written agreement (including email confirmation).
 
 ## 6. Customer Responsibilities
