@@ -1,12 +1,14 @@
 # Pascal Empirica – SaaS Terms & Data Requirements
 
-These general terms and data requirements apply to the Empirica software-as-a-service provided by Pascal Technologies AS (“Pascal”) to each customer (“Customer”). Empirica consists of a series of modules for performance analysis and optimisation of martime energy efficiency technologies (EETS) such as airlubrication systems (ALS) and wind assisted propulsion (WAPS)
+These general terms and data requirements apply to the Empirica software-as-a-service provided by Pascal Technologies AS (“Pascal”) to each customer (“Customer”). Empirica consists of a series of modules for performance analysis and optimisation of martime energy efficiency technologies (EETS) such as air lubrication systems (ALS) and wind assisted propulsion (WAPS)
 
 This page is incorporated by reference into the Empirica Order Form / Front Page executed between Pascal and Customer (the “Order Form”). Capitalised terms used but not defined here have the meaning given in the Order Form.
 
+
+
 ## 1. Scope and Structure of the Agreement
 
-(a) These Terms apply to Customer’s use of the Empirca SaaS service, any related professional services and integrations, and any associated documentation and materials that Pascal makes available (together, the “Service”).
+(a) These Terms apply to Customer’s use of the Empirica SaaS service, any related professional services and integrations, and any associated documentation and materials that Pascal makes available (together, the “Service”).
 
 (b) The contractual documents consist of:
 
@@ -16,6 +18,8 @@ This page is incorporated by reference into the Empirica Order Form / Front Page
 
 (c) In case of conflict, the Order Form prevails over this page, and this page prevails over any other documentation, unless the parties expressly agree otherwise in writing.
 
+
+
 ## 2. Service Description and Access
 
 (a) Pascal provides Empirica as a hosted service. Customer accesses the Service remotely over the internet through browser-based interfaces, APIs, and/or other access mechanisms specified by Pascal.
@@ -23,6 +27,8 @@ This page is incorporated by reference into the Empirica Order Form / Front Page
 (b) No software is delivered or installed on Customer systems, other than any lightweight connectors or agents that may be agreed for telemetry integration under Section 5.
 
 (c) Subject to timely payment of applicable fees and compliance with these Terms, Pascal grants Customer a non-exclusive, non-transferable, time-limited right to access and use the Service for Customer’s internal business purposes and for the number of vessels, users, and environments specified in the Order Form.
+
+
 
 ## 3. Intellectual Property and Licence
 
@@ -36,6 +42,8 @@ This page is incorporated by reference into the Empirica Order Form / Front Page
 
 (c) Customer retains ownership of Customer Data (including vessel telemetry, operational data and other materials supplied by Customer). Customer grants Pascal a non-exclusive, worldwide licence to host, process, analyse and use the Customer Data as necessary to provide the Service, improve the Service (on an aggregated and anonymised basis) and otherwise perform its obligations under the Agreement.
 
+
+
 ## 4. Fees, Free Trials and Payment Terms
 
 (a) Fees and commercial details (including any free trial periods, pilot terms, vessel counts and subscription charges) are set out in the Order Form.
@@ -47,7 +55,9 @@ This page is incorporated by reference into the Empirica Order Form / Front Page
 
 (c) Customer is responsible for all applicable taxes (other than taxes on Pascal’s income), and for reasonable expenses incurred by Pascal in connection with agreed services.
 
-(d) Late payment may result in suspension of access to the Service until the outstanding amounts are paid, after reasonable notice.
+(d) Late payment may result in suspension of access to the Service until the outstanding amounts are paid, after reasonable notice. Payment is due within 14 days from the invoice date. Late payments shall accrue interest at 1.5% per month (or the maximum rate permitted by law).
+
+
 
 ## 5. Telemetry Integration and Data Upload Requirements
 
@@ -150,6 +160,8 @@ In addition to the transport mechanisms above, Pascal and Customer will agree a 
 
 The Data & Documentation Sheet, once agreed, forms part of the Agreement and may be updated by mutual written agreement (including email confirmation).
 
+
+
 ## 6. Customer Responsibilities
 
 Customer is responsible for:
@@ -159,11 +171,15 @@ Customer is responsible for:
 - ensuring that all data supplied is, to the best of Customer’s knowledge, accurate, lawful and suitable for the intended use; and
 - notifying Pascal promptly of any security incidents or suspected misuse related to the Service.
 
+
+
 ## 7. Support and Service Levels
 
 Pascal provides remote support for the Service during its normal business hours (unless otherwise specified in the Order Form). Additional or out-of-hours support, if required, may be agreed separately.
 
 Pascal may perform scheduled maintenance windows; where possible these will be communicated in advance and planned to minimise operational impact.
+
+
 
 ## 8. Warranties and Disclaimers
 
@@ -173,6 +189,8 @@ Pascal may perform scheduled maintenance windows; where possible these will be c
 
 (c) Customer is solely responsible for its own compliance with laws and regulations and for decisions taken based on insights from the Service. The Service is a decision-support tool and does not replace Customer’s operational judgement.
 
+
+
 ## 9. Limitation of Liability
 
 (a) Neither party excludes liability for any damages caused by its negligence, for fraud, or for any other liability that cannot be excluded under applicable law.
@@ -181,11 +199,15 @@ Pascal may perform scheduled maintenance windows; where possible these will be c
 
 (c) Subject to (a) and (b), each party’s aggregate liability arising out of or in connection with the Agreement (whether in contract, tort or otherwise) is capped at an amount equal to the total subscription fees actually paid by Customer to Pascal for the Service in the twelve (12) months immediately preceding the event giving rise to the claim.
 
+
+
 ## 10. Confidentiality and Data Protection
 
 (a) Each party will treat as confidential all information received from the other party that is marked or reasonably understood to be confidential, and will use such information only for the purposes of performing the Agreement.
 
 (b) The parties will comply with applicable data protection laws in relation to any personal data processed through the Service. Typically, Customer acts as data controller and Pascal acts as data processor in respect of Customer’s personal data, and the parties may enter into a separate data processing agreement where required.
+
+
 
 ## 11. Term, Suspension and Termination
 
@@ -196,6 +218,8 @@ Pascal may perform scheduled maintenance windows; where possible these will be c
 (c) Pascal may suspend access to the Service on notice if Customer fails to pay undisputed fees when due, or if suspension is reasonably necessary to address a security risk or misuse. Access will be restored promptly once the underlying issue is resolved.
 
 (d) Upon termination, Customer’s right to access the Service ends. Pascal will make a final export of Customer Data available on request within a reasonable period, in a standard industry format (for example CSV or Parquet), and will then delete or anonymise Customer Data in accordance with its retention policies, unless otherwise required by law.
+
+
 
 ## 12. Governing Law and Dispute Resolution
 
